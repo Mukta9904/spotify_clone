@@ -5,7 +5,8 @@ let cardNo
 // get the songs name from href
 async function getSong(folder) {
   currFolder = folder
-  let a = await fetch(`http://127.0.0.1:3000/songs/${folder}`);
+  let a = await fetch(`${window.location.origin}/songs/${folder}`);
+
   // let a = await fetch(`/songs/${folder}`);
   let response = await a.text();
   let div = document.createElement("div");
