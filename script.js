@@ -41,7 +41,7 @@ async function getSong(folder) {
 let currSong = new Audio()
 async function playSong(track, pause = false) {
   // currSong.src = `/songs/${currFolder}/`+track+".mp3"  
-  currSong.src = `/spotify-clone-nu-roan.vercel.app/songs/${currFolder}/`+track+".mp3" 
+  currSong.src = `/songs/${currFolder}/`+track+".mp3" 
   if(!pause){
     await currSong.play()
     play.src = "img/pause.svg"
