@@ -5,7 +5,7 @@ let cardNo
 // get the songs name from href
 async function getSong(folder) {
   currFolder = folder
-  let a = await fetch(`http://127.0.0.1:3000/songs/${folder}`);
+  let a = await fetch(`https://spotify-clone-nu-roan.vercel.app/songs/${folder}`);
   // let a = await fetch(`/songs/${folder}`);
   let response = await a.text();
   let div = document.createElement("div");
@@ -41,7 +41,7 @@ async function getSong(folder) {
 let currSong = new Audio()
 async function playSong(track, pause = false) {
   // currSong.src = `/songs/${currFolder}/`+track+".mp3"  
-  currSong.src = `/songs/${currFolder}/`+track+".mp3" 
+  currSong.src = `/spotify-clone-nu-roan.vercel.app/songs/${currFolder}/`+track+".mp3" 
   if(!pause){
     await currSong.play()
     play.src = "img/pause.svg"
