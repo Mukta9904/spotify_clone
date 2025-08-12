@@ -5,9 +5,8 @@ let cardNo
 // get the songs name from href
 async function getSong(folder) {
   currFolder = folder
-  let a = await fetch(`${window.location.origin}/songs/${folder}`);
-
-  // let a = await fetch(`/songs/${folder}`);
+  // Using relative path instead of window.location.origin
+  let a = await fetch(`songs/${folder}`);
   let response = await a.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -41,8 +40,8 @@ async function getSong(folder) {
 // play the clicked song
 let currSong = new Audio()
 async function playSong(track, pause = false) {
-  // currSong.src = `/songs/${currFolder}/`+track+".mp3"  
-  currSong.src = `/songs/${currFolder}/`+track+".mp3" 
+  // Using relative path instead of absolute path
+  currSong.src = `songs/${currFolder}/`+track+".mp3" 
   if(!pause){
     await currSong.play()
     play.src = "img/pause.svg"
@@ -184,7 +183,7 @@ async function main() {
     })
 })
 previous.addEventListener("click",()=>{
-  let song = currSong.src.split(`/${currFolder}/`)[1];
+  let song = currSong.src.split(`${currFolder}/`)[1];
   let index
   songs.forEach((e,i)=>{
     if(e == song){
